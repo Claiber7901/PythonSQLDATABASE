@@ -1,16 +1,9 @@
--- 1. Crear la base de datos (si no existe ya)
 CREATE DATABASE IF NOT EXISTS pythontest;
 USE pythontest;
 
--- 2. Crear la tabla con la estructura solicitada
--- He añadido AUTO_INCREMENT al ID para que no tengas que preocuparte por los números
 CREATE TABLE IF NOT EXISTS tabla_01 (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     UsuarioNombre TEXT NOT NULL,
     UsuarioApellido TEXT NOT NULL,
     UsuarioPais TEXT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- 3. Insertar un registro inicial para verificar que hay datos al conectar
-INSERT INTO tabla_01 (UsuarioNombre, UsuarioApellido, UsuarioPais) 
-VALUES ('Prueba', 'Local', 'Universidad');
