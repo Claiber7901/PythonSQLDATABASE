@@ -1,12 +1,12 @@
 import sqlite3
 
-# 1. Conexión (Crea el archivo si no existe, no necesita XAMPP)
+# Conexion
 conexion = sqlite3.connect('universidad.db')
 
 try:
     cursor = conexion.cursor()
 
-    # 2. Estructura (Creamos la tabla si es la primera vez que corre)
+    # Estructura
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS tabla_01 (
             ID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -16,14 +16,14 @@ try:
         )
     """)
 
-    # 3. Mandar información (Insertar)
+    # (INSERT)
     sql = "INSERT INTO tabla_01 (UsuarioNombre, UsuarioApellido, UsuarioPais) VALUES (?, ?, ?)"
     cursor.execute(sql, ("Alan", "Turing", "Reino Unido"))
     
-    # 4. Guardar y confirmar
+    # Commit
     conexion.commit()
     print("¡Datos guardados con éxito en el archivo .db!")
 
 finally:
-    # 5. Cerrar el puente
+    # Cerrar Conexion
     conexion.close()
